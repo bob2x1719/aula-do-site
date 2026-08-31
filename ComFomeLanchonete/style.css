@@ -1,0 +1,645 @@
+/* =================================
+   RESET
+================================= */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+body {
+
+    font-family:
+        'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    background: #f5eee5;
+
+    min-height: 100vh;
+
+    color: #2b1a10;
+
+}
+
+
+
+/* =================================
+   CABEÇALHO
+================================= */
+
+header {
+
+    height: 80px;
+
+    background: #160c07;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 7%;
+
+    gap: 30px;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-right: auto;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+}
+
+
+.icone-logo {
+
+    font-size: 38px;
+
+}
+
+
+.logo span {
+
+    color: #ffc400;
+
+}
+
+
+.logo small {
+
+    display: block;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 28px;
+
+}
+
+
+nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    padding: 10px 0;
+
+}
+
+
+nav a:hover {
+
+    color: #ffc400;
+
+}
+
+
+
+/* =================================
+   ÁREA PRINCIPAL
+================================= */
+
+main {
+
+    min-height: calc(100vh - 140px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 60px;
+
+    padding: 50px 7%;
+
+}
+
+
+
+/* =================================
+   LADO DA IMAGEM
+================================= */
+
+.lado-imagem {
+
+    width: 400px;
+
+    min-height: 500px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+
+    background:
+
+        linear-gradient(
+            rgba(35, 14, 6, .90),
+            rgba(35, 14, 6, .90)
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+            #32170a,
+            #32170a 12px,
+            #421e0e 13px,
+            #281006 25px
+        );
+
+}
+
+
+.conteudo-imagem {
+
+    padding: 30px;
+
+}
+
+
+.hamburguer {
+
+    font-size: 150px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.lado-imagem h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.lado-imagem h2 span {
+
+    color: #ffc400;
+
+}
+
+
+.lado-imagem p {
+
+    color: #ddd0c5;
+
+    line-height: 1.6;
+
+}
+
+
+.decoracao {
+
+    font-size: 45px;
+
+    margin-top: 25px;
+
+}
+
+
+
+/* =================================
+   FORMULÁRIO
+================================= */
+
+.container {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.15);
+
+}
+
+
+.container h1 {
+
+    text-align: center;
+
+    color: #2b1a10;
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.subtitulo {
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+/* =================================
+   CAMPOS
+================================= */
+
+.grupo-campo {
+
+    margin-bottom: 16px;
+
+}
+
+
+label,
+.label-genero {
+
+    display: block;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    color: #333;
+
+    margin-bottom: 6px;
+
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    color: #333;
+
+    transition: .3s;
+
+}
+
+
+input:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: #ffc400;
+
+    box-shadow:
+        0 0 6px
+        rgba(255, 196, 0, .35);
+
+}
+
+
+
+/* =================================
+   GÊNERO
+================================= */
+
+.opcoes-inline {
+
+    display: flex;
+
+    gap: 8px;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+}
+
+
+.opcoes-inline label {
+
+    font-weight: normal;
+
+    margin-bottom: 0;
+
+    margin-right: 10px;
+
+}
+
+
+
+/* =================================
+   TERMOS
+================================= */
+
+.campo-termos {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.campo-termos label {
+
+    font-weight: normal;
+
+    margin-bottom: 0;
+
+    font-size: 13px;
+
+}
+
+
+.campo-termos a {
+
+    color: #d71912;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+.campo-termos a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+
+/* =================================
+   BOTÃO
+================================= */
+
+button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    background: #d71912;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    margin-top: 5px;
+
+}
+
+
+button:hover {
+
+    background: #a90f0b;
+
+    transform: translateY(-1px);
+
+}
+
+
+
+/* =================================
+   LOGIN
+================================= */
+
+.login-link {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    color: #777;
+
+}
+
+
+.login-link a {
+
+    color: #d71912;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+}
+
+
+.login-link a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+
+/* =================================
+   RODAPÉ
+================================= */
+
+footer {
+
+    height: 60px;
+
+    background: #110a07;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    font-size: 11px;
+
+}
+
+
+footer span {
+
+    color: #ffc400;
+
+}
+
+
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 900px) {
+
+    main {
+
+        flex-direction: column;
+
+        gap: 30px;
+
+    }
+
+
+    .lado-imagem {
+
+        width: 100%;
+
+        max-width: 500px;
+
+        min-height: 300px;
+
+    }
+
+
+    .hamburguer {
+
+        font-size: 90px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    header {
+
+        height: auto;
+
+        padding: 15px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    nav {
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 15px;
+
+    }
+
+
+    nav a {
+
+        font-size: 10px;
+
+    }
+
+
+    main {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .container {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .lado-imagem {
+
+        min-height: 280px;
+
+    }
+
+
+    footer {
+
+        height: auto;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+}

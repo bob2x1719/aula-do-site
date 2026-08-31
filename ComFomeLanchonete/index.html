@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Com Fome - Lanchonete</title>
+
+
+    <style>
+
+        /* =====================================
+           CONFIGURAÇÕES GERAIS
+        ===================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5eee5;
+            color: #2b1a10;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================
+           CABEÇALHO
+        ===================================== */
+
+        header {
+
+            height: 80px;
+
+            background: #160c07;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 5%;
+
+            gap: 30px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 23px;
+
+            font-weight: bold;
+
+            margin-right: auto;
+
+        }
+
+
+        .logo .icone {
+
+            font-size: 38px;
+
+        }
+
+
+        .logo span {
+
+            color: #ffc400;
+
+        }
+
+
+        .logo small {
+
+            display: block;
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        nav {
+
+            display: flex;
+
+            gap: 22px;
+
+        }
+
+
+        nav a {
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            padding: 28px 0;
+
+        }
+
+
+        nav a:hover {
+
+            color: #ffc400;
+
+            border-bottom: 3px solid #ffc400;
+
+        }
+
+
+        .carrinho {
+
+            background: transparent;
+
+            color: white;
+
+            border: 1px solid white;
+
+            border-radius: 5px;
+
+            padding: 11px 15px;
+
+            cursor: pointer;
+
+        }
+
+
+        .contador {
+
+            background: #e21b16;
+
+            border-radius: 50%;
+
+            padding: 3px 7px;
+
+        }
+
+
+
+        /* =====================================
+           BANNER
+        ===================================== */
+
+        .hero {
+
+            min-height: 430px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 50px 9%;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    rgba(20, 8, 3, .90),
+                    rgba(35, 14, 6, .90)
+                ),
+
+                repeating-linear-gradient(
+                    0deg,
+                    #32170a,
+                    #32170a 12px,
+                    #421e0e 13px,
+                    #281006 25px
+                );
+
+        }
+
+
+        .hero-text {
+
+            max-width: 550px;
+
+        }
+
+
+        .hero-text p {
+
+            color: #ffc400;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: 65px;
+
+            line-height: .9;
+
+            margin: 15px 0;
+
+            color: #ffc400;
+
+            text-shadow: 4px 4px #000;
+
+        }
+
+
+        .hero h1 span {
+
+            color: white;
+
+        }
+
+
+        .hero h3 {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .preco {
+
+            display: inline-block;
+
+            background: #fff0d2;
+
+            color: #351d0e;
+
+            padding: 12px 30px;
+
+            transform: rotate(-2deg);
+
+        }
+
+
+        .preco strong {
+
+            display: block;
+
+            font-size: 28px;
+
+        }
+
+
+        .botao-amarelo {
+
+            background: #ffc400;
+
+            color: #1d1008;
+
+            border: none;
+
+            border-radius: 5px;
+
+            padding: 13px 20px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-top: 20px;
+
+        }
+
+
+        .botao-amarelo:hover {
+
+            background: #ffdb4d;
+
+        }
+
+
+        .hero-comida {
+
+            font-size: 190px;
+
+            position: relative;
+
+        }
+
+
+        .hero-comida .batata {
+
+            position: absolute;
+
+            font-size: 75px;
+
+            bottom: 0;
+
+            left: 20px;
+
+        }
+
+
+
+        /* =====================================
+           BUSCA
+        ===================================== */
+
+        .busca-section {
+
+            padding: 45px 20px;
+
+            text-align: center;
+
+            background: #eadac5;
+
+        }
+
+
+        .busca-section h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .busca-section p {
+
+            color: #66584d;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .busca {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            display: flex;
+
+            background: white;
+
+            border-radius: 7px;
+
+            overflow: hidden;
+
+            border: 2px solid #d2bda4;
+
+        }
+
+
+        .busca input {
+
+            flex: 1;
+
+            border: none;
+
+            outline: none;
+
+            padding: 17px;
+
+            font-size: 15px;
+
+        }
+
+
+        .busca button {
+
+            border: none;
+
+            background: #ffc400;
+
+            padding: 0 25px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+
+        /* =====================================
+           CARDÁPIO
+        ===================================== */
+
+        #cardapio {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 50px 20px;
+
+        }
+
+
+        .titulo {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .titulo h2 {
+
+            font-size: 32px;
+
+        }
+
+
+        .linha {
+
+            display: block;
+
+            width: 60px;
+
+            height: 4px;
+
+            background: #d71912;
+
+            margin: 10px auto;
+
+        }
+
+
+        .produtos {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .produto {
+
+            background: white;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,.10);
+
+            transition: .2s;
+
+        }
+
+
+        .produto:hover {
+
+            transform: translateY(-5px);
+
+        }
+
+
+        .imagem {
+
+            font-size: 80px;
+
+            height: 110px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        .produto h3 {
+
+            margin: 10px 0;
+
+        }
+
+
+        .produto p {
+
+            font-size: 12px;
+
+            color: #746960;
+
+            line-height: 1.5;
+
+        }
+
+
+        .produto .preco-produto {
+
+            display: block;
+
+            color: #d71912;
+
+            font-size: 19px;
+
+            font-weight: bold;
+
+            margin: 12px;
+
+        }
+
+
+        .adicionar {
+
+            border: none;
+
+            background: #d71912;
+
+            color: white;
+
+            padding: 10px 15px;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .adicionar:hover {
+
+            background: #a90f0b;
+
+        }
+
+
+
+        /* =====================================
+           PROMOÇÕES
+        ===================================== */
+
+        #promocoes {
+
+            background: #24120a;
+
+            color: white;
+
+            padding: 50px 8%;
+
+            text-align: center;
+
+        }
+
+
+        #promocoes h2 {
+
+            font-size: 32px;
+
+            color: #ffc400;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .promocoes-lista {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+            max-width: 1000px;
+
+            margin: auto;
+
+        }
+
+
+        .promocao {
+
+            background: #3b1d0e;
+
+            border-radius: 10px;
+
+            padding: 25px;
+
+        }
+
+
+        .promocao .imagem {
+
+            font-size: 70px;
+
+        }
+
+
+        .promocao h3 {
+
+            margin: 10px;
+
+        }
+
+
+        .promocao strong {
+
+            color: #ffc400;
+
+            font-size: 22px;
+
+        }
+
+
+
+        /* =====================================
+           LOGIN
+        ===================================== */
+
+        #login {
+
+            max-width: 500px;
+
+            margin: 60px auto;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,.12);
+
+        }
+
+
+        #login h2 {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .campo {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .campo label {
+
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .campo input,
+        .campo select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+        }
+
+
+        .botao-vermelho {
+
+            width: 100%;
+
+            background: #d71912;
+
+            color: white;
+
+            border: none;
+
+            padding: 13px;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+
+        /* =====================================
+           CADASTRO
+        ===================================== */
+
+        #cadastro {
+
+            padding: 60px 20px;
+
+            background: #eadac5;
+
+        }
+
+
+        .container {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.15);
+
+        }
+
+
+        .container h1 {
+
+            text-align: center;
+
+            color: #2b1a10;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .grupo-campo {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .grupo-campo label {
+
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .grupo-campo input[type="text"],
+        .grupo-campo input[type="email"],
+        .grupo-campo input[type="password"],
+        .grupo-campo input[type="tel"],
+        .grupo-campo input[type="date"],
+        .grupo-campo select {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 14px;
+
+            outline: none;
+
+        }
+
+
+        .grupo-campo input:focus,
+        .grupo-campo select:focus {
+
+            border-color: #ffc400;
+
+        }
+
+
+        .opcoes-inline {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .opcoes-inline label {
+
+            display: inline;
+
+            font-weight: normal;
+
+            margin-right: 15px;
+
+        }
+
+
+        .campo-termos {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+
+        .campo-termos label {
+
+            display: inline;
+
+            font-weight: normal;
+
+            margin: 0;
+
+        }
+
+
+        .campo-termos a {
+
+            color: #d71912;
+
+            text-decoration: underline;
+
+        }
+
+
+        .botao-cadastrar {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #d71912;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .botao-cadastrar:hover {
+
+            background: #a90f0b;
+
+        }
+
+
+
+        /* =====================================
+           BENEFÍCIOS
+        ===================================== */
+
+        .beneficios {
+
+            background: #1c100a;
+
+            color: white;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            padding: 35px 7%;
+
+            gap: 20px;
+
+        }
+
+
+        .beneficio {
+
+            text-align: center;
+
+        }
+
+
+        .beneficio .icone {
+
+            font-size: 35px;
+
+        }
+
+
+        .beneficio h3 {
+
+            font-size: 13px;
+
+            margin: 8px;
+
+        }
+
+
+        .beneficio p {
+
+            color: #cfc0b3;
+
+            font-size: 11px;
+
+        }
+
+
+
+        /* =====================================
+           RODAPÉ
+        ===================================== */
+
+        footer {
+
+            background: #110a07;
+
+            color: white;
+
+            padding: 25px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            font-size: 11px;
+
+        }
+
+
+        footer span {
+
+            color: #ffc400;
+
+        }
+
+
+
+        /* =====================================
+           RESPONSIVIDADE
+        ===================================== */
+
+        @media (max-width: 900px) {
+
+            .hero {
+
+                flex-direction: column;
+
+                text-align: center;
+
+            }
+
+
+            .hero-comida {
+
+                font-size: 130px;
+
+            }
+
+
+            .produtos {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .promocoes-lista {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .beneficios {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+
+                height: auto;
+
+                padding: 15px;
+
+                flex-wrap: wrap;
+
+            }
+
+
+            nav {
+
+                width: 100%;
+
+                justify-content: center;
+
+                overflow-x: auto;
+
+            }
+
+
+            nav a {
+
+                padding: 8px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 45px;
+
+            }
+
+
+            .produtos {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .promocoes-lista {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .beneficios {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .busca {
+
+                flex-direction: column;
+
+            }
+
+
+            .busca button {
+
+                padding: 14px;
+
+            }
+
+
+            footer {
+
+                flex-direction: column;
+
+                text-align: center;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         CABEÇALHO
+    ===================================== -->
+
+    <header>
+
+        <a href="#inicio" class="logo">
+
+            <span class="icone">
+                🍔
+            </span>
+
+            <div>
+
+                COM<span>FOME</span>
+
+                <small>
+                    LANCHONETE
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="#inicio">
+                INÍCIO
+            </a>
+
+            <a href="#cardapio">
+                CARDÁPIO
+            </a>
+
+            <a href="#busca">
+                BUSCA
+            </a>
+
+            <a href="#promocoes">
+                PROMOÇÕES
+            </a>
+
+            <a href="#login">
+                LOGIN
+            </a>
+
+            <a href="#cadastro">
+                CADASTRO
+            </a>
+
+        </nav>
+
+
+        <button
+            class="carrinho"
+            onclick="verCarrinho()">
+
+            🛒
+
+            <span
+                class="contador"
+                id="contador">
+
+                0
+
+            </span>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================
+         INÍCIO
+    ===================================== -->
+
+    <section
+        class="hero"
+        id="inicio">
+
+
+        <div class="hero-text">
+
+            <p>
+                PROMOÇÃO
+            </p>
+
+
+            <h1>
+
+                COMBO
+
+                <br>
+
+                <span>
+                    COM FOME
+                </span>
+
+            </h1>
+
+
+            <h3>
+                O COMBO PERFEITO PARA VOCÊ!
+            </h3>
+
+
+            <div class="preco">
+
+                <small>
+                    A PARTIR DE
+                </small>
+
+                <strong>
+                    R$ 60,00
+                </strong>
+
+            </div>
+
+
+            <br>
+
+
+            <a
+                href="#cardapio"
+                class="botao-amarelo">
+
+                PEDIR AGORA →
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-comida">
+
+            🍔
+
+            <div class="batata">
+                🍟
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         BUSCA
+    ===================================== -->
+
+    <section
+        class="busca-section"
+        id="busca">
+
+
+        <h2>
+            🔎 Encontre seu lanche
+        </h2>
+
+
+        <p>
+            Pesquise pelo nome do produto.
+        </p>
+
+
+        <div class="busca">
+
+            <input
+                type="text"
+                id="campoBusca"
+                placeholder="Digite o nome do lanche..."
+                onkeyup="buscar()">
+
+
+            <button
+                onclick="buscar()">
+
+                BUSCAR
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         CARDÁPIO
+    ===================================== -->
+
+    <section id="cardapio">
+
+        <div class="titulo">
+
+            <h2>
+                CARDÁPIO
+            </h2>
+
+            <span class="linha"></span>
+
+        </div>
+
+
+        <div
+            class="produtos"
+            id="listaProdutos">
+
+
+            <!-- PRODUTO -->
+
+            <article
+                class="produto"
+                data-nome="x-burguer">
+
+                <div class="imagem">
+                    🍔
+                </div>
+
+                <h3>
+                    X-Burguer
+                </h3>
+
+                <p>
+                    Pão, carne, queijo,
+                    alface, tomate e molho.
+                </p>
+
+                <strong class="preco-produto">
+                    R$ 23,90
+                </strong>
+
+                <button
+                    class="adicionar"
+                    onclick="adicionar('X-Burguer', 23.90)">
+
+                    + ADICIONAR
+
+                </button>
+
+            </article>
+
+
+
+            <article
+                class="produto"
+                data-nome="x-bacon">
+
+                <div class="imagem">
+                    🍔
+                </div>
+
+                <h3>
+                    X-Bacon
+                </h3>
+
+                <p>
+                    Carne, queijo,
+                    bacon e molho especial.
+                </p>
+
+                <strong class="preco-produto">
+                    R$ 27,90
+                </strong>
+
+                <button
+                    class="adicionar"
+                    onclick="adicionar('X-Bacon', 27.90)">
+
+                    + ADICIONAR
+
+                </button>
+
+            </article>
+
+
+
+            <article
+                class="produto"
+                data-nome="x-salada">
+
+                <div class="imagem">
+                    🍔
+                </div>
+
+                <h3>
+                    X-Salada
+                </h3>
+
+                <p>
+                    Carne, queijo,
+                    alface e tomate.
+                </p>
+
+                <strong class="preco-produto">
+                    R$ 25,90
+                </strong>
+
+                <button
+                    class="adicionar"
+                    onclick="adicionar('X-Salada', 25.90)">
+
+                    + ADICIONAR
+
+                </button>
+
+            </article>
+
+
+
+            <article
+                class="produto"
+                data-nome="hamburguer duplo">
+
+                <div class="imagem">
+                    🍔
+                </div>
+
+                <h3>
+                    Hambúrguer Duplo
+                </h3>
+
+                <p>
+                    Dois hambúrgueres,
+                    queijo e molho.
+                </p>
+
+                <strong class="preco-produto">
+                    R$ 32,90
+                </strong>
+
+                <button
+                    class="adicionar"
+                    onclick="adicionar('Hambúrguer Duplo', 32.90)">
+
+                    + ADICIONAR
+
+                </button>
+
+            </article>
+
+
+
+            <article
+                class="produto"
+                data-nome="batata frita">
+
+                <div class="imagem">
+                    🍟
+                </div>
+
+                <h3>
+                    Batata Frita
+                </h3>
+
+                <p>
+                    Batata crocante
+                    e quentinha.
+                </p>
+
+                <strong class="preco-produto">
+                    R$ 13,90
+                </strong>
+
+                <button
+                    class="adicionar"
+                    onclick="adicionar('Batata Frita', 13.90)">
+
+                    + ADICIONAR
+
+                </button>
+
+            </article>
+
+
+
+            <article
+                class="produto"
+                data-nome="refrigerante">
+
+                <div class="imagem">
+                    🥤
+                </div>
+
+                <h3>
+                    Refrigerante
+                </h3>
+
+                <p>
+                    Refrigerante gelado
+                    350 ml.
+                </p>
+
+                <strong class="preco-produto">
+                    R$ 6,90
+                </strong>
+
+                <button
+                    class="adicionar"
+                    onclick="adicionar('Refrigerante', 6.90)">
+
+                    + ADICIONAR
+
+                </button>
+
+            </article>
+
+
+
+            <article
+                class="produto"
+                data-nome="sorvete">
+
+                <div class="imagem">
+                    🍦
+                </div>
+
+                <h3>
+                    Sorvete
+                </h3>
+
+                <p>
+                    Casquinha de
+                    chocolate.
+                </p>
+
+                <strong class="preco-produto">
+                    R$ 8,90
+                </strong>
+
+                <button
+                    class="adicionar"
+                    onclick="adicionar('Sorvete', 8.90)">
+
+                    + ADICIONAR
+
+                </button>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PROMOÇÕES
+    ===================================== -->
+
+    <section id="promocoes">
+
+        <h2>
+            🔥 PROMOÇÕES
+        </h2>
+
+
+        <div class="promocoes-lista">
+
+
+            <div class="promocao">
+
+                <div class="imagem">
+                    🍔🍟
+                </div>
+
+                <h3>
+                    Combo Clássico
+                </h3>
+
+                <p>
+                    Hambúrguer + batata +
+                    refrigerante
+                </p>
+
+                <br>
+
+                <strong>
+                    R$ 39,90
+                </strong>
+
+            </div>
+
+
+
+            <div class="promocao">
+
+                <div class="imagem">
+                    🍔🍟🥤
+                </div>
+
+                <h3>
+                    Combo Família
+                </h3>
+
+                <p>
+                    Hambúrguer duplo +
+                    batata + bebida
+                </p>
+
+                <br>
+
+                <strong>
+                    R$ 55,90
+                </strong>
+
+            </div>
+
+
+
+            <div class="promocao">
+
+                <div class="imagem">
+                    🍔🍦
+                </div>
+
+                <h3>
+                    Combo Especial
+                </h3>
+
+                <p>
+                    Hambúrguer + sobremesa
+                </p>
+
+                <br>
+
+                <strong>
+                    R$ 42,90
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         LOGIN
+    ===================================== -->
+
+    <section id="login">
+
+        <h2>
+            LOGIN
+        </h2>
+
+
+        <form onsubmit="login(event)">
+
+            <div class="campo">
+
+                <label>
+                    E-mail:
+                </label>
+
+                <input
+                    type="email"
+                    required
+                    placeholder="Digite seu e-mail">
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>
+                    Senha:
+                </label>
+
+                <input
+                    type="password"
+                    required
+                    placeholder="Digite sua senha">
+
+            </div>
+
+
+            <button
+                class="botao-vermelho"
+                type="submit">
+
+                ENTRAR
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =====================================
+         CADASTRO
+         BASEADO NO SEU CÓDIGO
+    ===================================== -->
+
+    <section id="cadastro">
+
+
+        <div class="container">
+
+
+            <h1>
+                Cadastro de Usuário
+            </h1>
+
+
+            <form
+                onsubmit="cadastrar(event)">
+
+
+                <!-- NOME -->
+
+                <div class="grupo-campo">
+
+                    <label for="nome">
+                        Nome:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        required
+                        placeholder="Digite seu nome">
+
+                </div>
+
+
+
+                <!-- SOBRENOME -->
+
+                <div class="grupo-campo">
+
+                    <label for="sobrenome">
+                        Sobrenome:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="sobrenome"
+                        name="sobrenome"
+                        required
+                        placeholder="Digite seu sobrenome">
+
+                </div>
+
+
+
+                <!-- E-MAIL -->
+
+                <div class="grupo-campo">
+
+                    <label for="email">
+                        E-mail:
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="seuemail@exemplo.com">
+
+                </div>
+
+
+
+                <!-- SENHA -->
+
+                <div class="grupo-campo">
+
+                    <label for="senha">
+                        Senha:
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        required
+                        placeholder="Crie uma senha forte">
+
+                </div>
+
+
+
+                <!-- TELEFONE -->
+
+                <div class="grupo-campo">
+
+                    <label for="telefone">
+                        Telefone:
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        placeholder="(41) 99999-9999">
+
+                </div>
+
+
+
+                <!-- DATA -->
+
+                <div class="grupo-campo">
+
+                    <label for="data">
+                        Data de Nascimento:
+                    </label>
+
+                    <input
+                        type="date"
+                        id="data"
+                        name="data">
+
+                </div>
+
+
+
+                <!-- GÊNERO -->
+
+                <div class="grupo-campo">
+
+                    <label>
+                        Gênero:
+                    </label>
+
+
+                    <div class="opcoes-inline">
+
+                        <input
+                            type="radio"
+                            id="masculino"
+                            name="sexo"
+                            value="masculino">
+
+                        <label for="masculino">
+                            Masculino
+                        </label>
+
+
+                        <input
+                            type="radio"
+                            id="feminino"
+                            name="sexo"
+                            value="feminino">
+
+                        <label for="feminino">
+                            Feminino
+                        </label>
+
+
+                        <input
+                            type="radio"
+                            id="outro"
+                            name="sexo"
+                            value="outro">
+
+                        <label for="outro">
+                            Outro
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CIDADE -->
+
+                <div class="grupo-campo">
+
+                    <label for="cidade">
+                        Cidade:
+                    </label>
+
+
+                    <select
+                        id="cidade"
+                        name="cidade">
+
+                        <option value="">
+                            Selecione uma cidade
+                        </option>
+
+                        <option value="curitiba">
+                            Curitiba
+                        </option>
+
+                        <option value="londrina">
+                            Londrina
+                        </option>
+
+                        <option value="maringa">
+                            Maringá
+                        </option>
+
+                        <option value="ponta-grossa">
+                            Ponta Grossa
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- TERMOS -->
+
+                <div class="grupo-campo campo-termos">
+
+                    <input
+                        type="checkbox"
+                        id="termos"
+                        name="termos"
+                        required>
+
+
+                    <label for="termos">
+
+                        Li e aceito os
+
+                        <a href="#">
+                            termos de uso
+                        </a>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- BOTÃO -->
+
+                <button
+                    type="submit"
+                    class="botao-cadastrar">
+
+                    CADASTRAR
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         BENEFÍCIOS
+    ===================================== -->
+
+    <section class="beneficios">
+
+
+        <div class="beneficio">
+
+            <div class="icone">
+                🍔
+            </div>
+
+            <h3>
+                INGREDIENTES
+                DE QUALIDADE
+            </h3>
+
+            <p>
+                Tudo sempre fresco
+                e selecionado.
+            </p>
+
+        </div>
+
+
+
+        <div class="beneficio">
+
+            <div class="icone">
+                🛵
+            </div>
+
+            <h3>
+                ENTREGA RÁPIDA
+            </h3>
+
+            <p>
+                Seu pedido chega
+                quente e rápido.
+            </p>
+
+        </div>
+
+
+
+        <div class="beneficio">
+
+            <div class="icone">
+                💳
+            </div>
+
+            <h3>
+                PAGAMENTO SEGURO
+            </h3>
+
+            <p>
+                Ambiente seguro
+                e protegido.
+            </p>
+
+        </div>
+
+
+
+        <div class="beneficio">
+
+            <div class="icone">
+                🙂
+            </div>
+
+            <h3>
+                ATENDIMENTO
+            </h3>
+
+            <p>
+                Sempre prontos
+                para te atender.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         RODAPÉ
+    ===================================== -->
+
+    <footer>
+
+        <div>
+
+            🍔
+
+            <b>
+                COM<span>FOME</span>
+            </b>
+
+        </div>
+
+
+        <div>
+
+            <a href="#inicio">
+                Início
+            </a>
+
+            &nbsp; | &nbsp;
+
+            <a href="#cardapio">
+                Cardápio
+            </a>
+
+            &nbsp; | &nbsp;
+
+            <a href="#busca">
+                Busca
+            </a>
+
+            &nbsp; | &nbsp;
+
+            <a href="#cadastro">
+                Cadastro
+            </a>
+
+        </div>
+
+
+        <p>
+            © 2026 Com Fome.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ===================================== -->
+
+    <script>
+
+        /* CARRINHO */
+
+        let quantidade = 0;
+
+        let total = 0;
+
+
+        function adicionar(nome, preco) {
+
+            quantidade++;
+
+            total += preco;
+
+
+            document
+                .getElementById("contador")
+                .innerText = quantidade;
+
+
+            alert(
+                nome +
+                " foi adicionado ao carrinho!\n\n" +
+
+                "Total: R$ " +
+
+                total
+                    .toFixed(2)
+                    .replace(".", ",")
+            );
+
+        }
+
+
+
+        /* VER CARRINHO */
+
+        function verCarrinho() {
+
+            if (quantidade === 0) {
+
+                alert(
+                    "Seu carrinho está vazio."
+                );
+
+            } else {
+
+                alert(
+
+                    "Itens no carrinho: " +
+                    quantidade +
+
+                    "\n\nTotal: R$ " +
+
+                    total
+                        .toFixed(2)
+                        .replace(".", ",")
+
+                );
+
+            }
+
+        }
+
+
+
+        /* BUSCA */
+
+        function buscar() {
+
+            let texto =
+                document
+                .getElementById("campoBusca")
+                .value
+                .toLowerCase();
+
+
+            let produtos =
+                document
+                .querySelectorAll(".produto");
+
+
+            produtos.forEach(function(produto) {
+
+                let nome =
+                    produto
+                    .getAttribute("data-nome");
+
+
+                if (
+                    nome.includes(texto)
+                ) {
+
+                    produto.style.display =
+                        "block";
+
+                } else {
+
+                    produto.style.display =
+                        "none";
+
+                }
+
+            });
+
+        }
+
+
+
+        /* LOGIN */
+
+        function login(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Login realizado com sucesso!"
+            );
+
+        }
+
+
+
+        /* CADASTRO */
+
+        function cadastrar(event) {
+
+            event.preventDefault();
+
+
+            let nome =
+                document
+                .getElementById("nome")
+                .value;
+
+
+            alert(
+
+                "Cadastro realizado com sucesso, " +
+                nome +
+                "!"
+
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
